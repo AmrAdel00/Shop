@@ -10,7 +10,7 @@ class department{
 
     public function __construct($con){
 
-        $this -> db;
+        $this -> db = $con;
 
     }
 
