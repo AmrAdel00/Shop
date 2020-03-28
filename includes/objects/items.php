@@ -173,4 +173,28 @@ class items{
         $stmt -> execute(array($id));
         return $stmt -> rowCount();
     }
+
+    public function itemDept($id){
+        $stmt = $this -> db -> prepare("SELECT * FROM items WHERE dept_ID = ?");
+        $stmt -> execute(array($id));
+        return $stmt -> fetchAll();
+    }
+
+    public function itemInfo($id){
+        $stmt = $this -> db -> prepare("SELECT user.name AS user, department.name AS dept, items.* FROM items INNER JOIN department ON department.ID = items.dept_ID INNER JOIN user ON user.ID = items.user_ID WHERE items.ID = ? ORDER BY ID DESC");
+        $stmt -> execute(array($id));
+        return $stmt -> fetch();
+    }
+
+    public function viewHome(){
+        $stmt = $this -> db -> prepare("SELECT * FROM items ORDER BY ID DESC LIMIT 8 ");
+        $stmt -> execute();
+        return $stmt -> fetchAll();
+    }
+
+    public function search($name){
+        $stmt = $this -> db -> prepare("SELECT * FROM items WHERE name LIKE '%$name%' ORDER BY ID DESC");
+        $stmt -> execute();
+        return $stmt -> fetchAll();
+    }
 }

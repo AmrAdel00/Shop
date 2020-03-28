@@ -14,7 +14,7 @@
             $visiter = $user -> checkUser($_POST['name']);
 
             if ($visiter > 0){
-                echo '<p class="container alert bg-transparent" style="border-color:#F90A0A">UserName "' . $_POST['name'] . '" Is Already Exist</p>';
+                echo '<p class="container alert bg-white my-2 text-danger" style="border-color:#F90A0A">UserName "' . $_POST['name'] . '" Is Already Exist</p>';
             } else {
                 $user -> create($_POST['name'],$_POST['email'],$_POST['pass']);
 
@@ -51,7 +51,7 @@
 
 
             } else {
-                echo '<p class="container alert bg-transparent" style="border-color:#F90A0A">Please Enter Username And Password Right</p>';
+                echo '<p class="container alert bg-white my-2 text-danger" style="border-color:#F90A0A">Please Enter Username And Password Right</p>';
             }
 
         }
@@ -59,71 +59,151 @@
 
     if (isset($_GET['sign'])){
         ?>
-        <div class="container">
-            <h1 class="text-center text-capitalize">join us</h1>
-            <form class="w-100 my-5" id="registration_form" method="POST"  action="<?php echo $_SERVER['PHP_SELF']; ?>?go=join&sign">
+        <div class="container d-flex justify-content-center">
+            <form class="form" id="registration_form" method="POST" name="sign" action="<?php echo $_SERVER['PHP_SELF']; ?>?go=join&sign">
+                <h2> Join Us  </h2>
                 <div class="form-group row">
-                    <label for="name" class="col-sm-2 col-form-label">UserName</label>
+                    <div class="col-sm-12">
+                        <label for="form_name"> UserName</label>
+                    </div>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="form_name" name="name"/>
+                        <input type="text" class="form-control" id="form_name" name="name">
                         <span class="text-danger" id="name_error_message"></span>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="email" class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-10">
-                        <input type="email" class="form-control" id="form_email" name="email"/>
+                    <div class="col-sm-12">
+                        <label for="form_email"> Email  </label>
+                    </div>
+                    <div class="col-md-10 col-sm-12">
+                        <input type="email" class="form-control" id="form_email" />
                         <span class="text-danger" id="email_error_message"></span>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="pass" class="col-sm-2 col-form-label">PassWord</label>
+                    <div class="col-sm-12">
+                        <label for="form_password"> PassWord </label>
+                    </div>
                     <div class="col-sm-10">
-                        <input type="password" class="form-control" id="form_password" name="pass"/>
+                        <input type="password" class="form-control" id="form_password" name="pass" />
                         <span class="text-danger" id="password_error_message"></span>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="pass" class="col-sm-2 col-form-label">Re-Type PassWord</label>
+                    <div class="col-sm-12">
+                        <label for="form_retype_password"> Re-Type PassWord </label>
+                    </div>
                     <div class="col-sm-10">
-                        <input type="password" class="form-control" id="form_retype_password"/>
+                        <input type="password" class="form-control" id="form_retype_password" />
                         <span class="text-danger" id="retype_password_error_message"></span>
                     </div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group row" style="display:flex ; justify-content:center ;">
                     <div class="col-sm-12">
-                        <input type="submit" class="form-control"  name="sign"/>
+                        <button type="submit" class="btn btn-primary" style="width: 100px ; background-color: rgb(41, 104, 104) ; border: none ;
+                border-radius: 15px ; color: wheat ; display: block ; margin-top: 7px ; margin: auto" name="sign" > Submit
+                        </button>
                     </div>
                 </div>
+                <a href="index.php?go=join&login" >Do You Already Have Account ? </a>
             </form>
-            <a href="index.php?go=join&login" >Do You Already Have Account ? </a>
         </div>
+<!--        <div class="container">-->
+<!--            <h1 class="text-center text-capitalize">join us</h1>-->
+<!--            <form class="w-100 my-5" id="registration_form" method="POST"  action="--><?php //echo $_SERVER['PHP_SELF']; ?><!--?go=join&sign">-->
+<!--                <div class="form-group row">-->
+<!--                    <label for="name" class="col-sm-2 col-form-label">UserName</label>-->
+<!--                    <div class="col-sm-10">-->
+<!--                        <input type="text" class="form-control" id="form_name" name="name"/>-->
+<!--                        <span class="text-danger" id="name_error_message"></span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="form-group row">-->
+<!--                    <label for="email" class="col-sm-2 col-form-label">Email</label>-->
+<!--                    <div class="col-sm-10">-->
+<!--                        <input type="email" class="form-control" id="form_email" name="email"/>-->
+<!--                        <span class="text-danger" id="email_error_message"></span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="form-group row">-->
+<!--                    <label for="pass" class="col-sm-2 col-form-label">PassWord</label>-->
+<!--                    <div class="col-sm-10">-->
+<!--                        <input type="password" class="form-control" id="form_password" name="pass"/>-->
+<!--                        <span class="text-danger" id="password_error_message"></span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="form-group row">-->
+<!--                    <label for="pass" class="col-sm-2 col-form-label">Re-Type PassWord</label>-->
+<!--                    <div class="col-sm-10">-->
+<!--                        <input type="password" class="form-control" id="form_retype_password"/>-->
+<!--                        <span class="text-danger" id="retype_password_error_message"></span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="form-group row">-->
+<!--                    <div class="col-sm-12">-->
+<!--                        <input type="submit" class="form-control"  name="sign"/>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--            <a href="index.php?go=join&login" >Do You Already Have Account ? </a>-->
+<!--        </div>-->
         <?php
     } elseif (isset($_GET['login'])){
         ?>
-        <div class="container">
-            <h1 class="text-center text-capitalize">login in</h1>
-            <form class="w-100 my-5"  method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>?go=join&login">
+        <div class="container d-flex justify-content-center">
+            <form class="form" method="POST" name="login" action="<?php echo $_SERVER['PHP_SELF']; ?>?go=join&sign">
+                <h2> login in   </h2>
                 <div class="form-group row">
-                    <label for="name" class="col-sm-2 col-form-label">UserName</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="name" name="name"/>
+                    <div class="col-sm-12">
+                        <label for="form_name"> UserName</label>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label for="pass" class="col-sm-2 col-form-label">PassWord</label>
                     <div class="col-sm-10">
-                        <input type="password" class="form-control" id="pass" name="pass"/>
+                        <input type="text" class="form-control" id="form_name" name="name">
+                        <span class="text-danger" id="name_error_message"></span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-12">
-                        <input type="submit" class="form-control" />
+                        <label for="form_password"> PassWord </label>
+                    </div>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="form_password" name="pass" />
+                        <span class="text-danger" id="password_error_message"></span>
                     </div>
                 </div>
+                <div class="form-group row" style="display:flex ; justify-content:center ;">
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-primary" style="width: 100px ; background-color: rgb(41, 104, 104) ; border: none ;
+                border-radius: 15px ; color: wheat ; display: block ; margin-top: 7px ; margin: auto" name="login" > Submit
+                        </button>
+                    </div>
+                </div>
+                <a href="index.php?go=join&sign" >Do You Want To Create Account ?  </a>
             </form>
-            <a href="index.php?go=join&sign" >Do You Want To Create Account ? </a>
         </div>
+<!--        <div class="container">-->
+<!--            <h1 class="text-center text-capitalize">login in</h1>-->
+<!--            <form class="w-100 my-5"  method="POST" action="--><?php //echo $_SERVER['PHP_SELF'];?><!--?go=join&login">-->
+<!--                <div class="form-group row">-->
+<!--                    <label for="name" class="col-sm-2 col-form-label">UserName</label>-->
+<!--                    <div class="col-sm-10">-->
+<!--                        <input type="text" class="form-control" id="name" name="name"/>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="form-group row">-->
+<!--                    <label for="pass" class="col-sm-2 col-form-label">PassWord</label>-->
+<!--                    <div class="col-sm-10">-->
+<!--                        <input type="password" class="form-control" id="pass" name="pass"/>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="form-group row">-->
+<!--                    <div class="col-sm-12">-->
+<!--                        <input type="submit" class="form-control" />-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--            <a href="index.php?go=join&sign" >Do You Want To Create Account ? </a>-->
+<!--        </div>-->
         <?php
     } else {
         header('location: index.php?go=join&sign');

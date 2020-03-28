@@ -52,7 +52,7 @@
                                 <img src="<?php echo $sliderPath . $slide['img']; ?>" style="height: 500px;width: 100%" />
                             </div>
                             <div class="form-group position-relative">
-                                <a href="index.php?go=website&delete&id=<?php echo $slide['ID']; ?>" class="btn btn-danger position-absolute confirm " style="top:10px;right: 5px">Delete</a>
+                                <a href="index.php?go=website&delete&id=<?php echo $slide['ID']; ?>" class="btn btn-danger position-absolute confirm " style="top:0px;right: 5px;z-index: 3">Delete</a>
                                 <label for="head<?php echo $slide['ID']; ?>" class="col-sm-2 col-form-label">Head</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="head<?php echo $slide['ID']; ?>" name="head" value="<?php echo $slide['head'];?>" />
@@ -130,8 +130,8 @@
                 </a>
 
             </div>
-            <a href="index.php?go=website&add" class="btn bg-dark text-white my-3 mx-2 fa-pull-right">Add Slide</a>
-            <a href="index.php?go=website&edit" class="btn bg-dark text-white my-3 mx-2 fa-pull-right">Edit</a>
+            <a href="index.php?go=website&add" class="btn bg-dark text-white my-1 mx-2 fa-pull-right">Add Slide</a>
+            <a href="index.php?go=website&edit" class="btn bg-dark text-white my-1 mx-2 fa-pull-right">Edit</a>
         </div>
 
         <?php

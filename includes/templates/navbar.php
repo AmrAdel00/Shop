@@ -14,6 +14,9 @@
                         <li class="nav-item <?php if((isset($_GET['go']) && $_GET['go'] === 'dept') || (isset($_GET['go']) && $_GET['go'] == 'item' ) || (isset($_GET['go']) && $_GET['go'] == 'buy' )){ echo 'active';} ?>">
                             <a class="nav-link" href="index.php?go=dept">departments</a>
                         </li>
+                        <li class="nav-item <?php if(isset($_GET['go']) && $_GET['go'] === 'search'){ echo 'active';} ?>">
+                            <a class="nav-link" href="index.php?go=search"><i class="fa fa-search"></i> Search  </span></a>
+                        </li>
                         <?php
                             if (!isset($_SESSION['username'])){
                                 ?>

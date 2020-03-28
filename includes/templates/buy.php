@@ -20,38 +20,42 @@
 
             ?>
             <div class="container">
-                <h1 class="text-center"><?php echo $itemBuy['name']; ?></h1>
+                <h1 class="text-center row my-5"><div class="col-5"><?php echo $itemBuy['name']; ?></div><div class="col-5 "><span class="fa-pull-right">$<?php echo $itemBuy['price']; ?></span></div> </h1>
                 <form class="w-100" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>?go=buy&id=<?php echo $id; ?>">
                     <div class="form-group row">
                         <div class="col-lg-2 col-md-2 col-sm-12">
-                            <label for="name">Name</label>
+                            <label for="form_name">Name</label>
                         </div>
                         <div class="col-lg-10 col-md-10 col-sm-12">
-                            <input class="form-control" type="text" id="name" name="name" />
+                            <input class="form-control" type="text" id="form_name" name="name" />
+                            <span class="text-danger" id="name_error_message"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-lg-2 col-md-2 col-sm-12">
-                            <label for="address">Address</label>
+                            <label for="form_address">Address</label>
                         </div>
                         <div class="col-lg-10 col-md-10 col-sm-12">
-                            <input class="form-control" type="text" id="address" name="address" />
+                            <input class="form-control" type="text" id="form_address" name="address" />
+                            <span class="text-danger" id="address_error_message"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-lg-2 col-md-2 col-sm-12">
-                            <label for="phone">Phone</label>
+                            <label for="form_phone">Phone</label>
                         </div>
                         <div class="col-lg-10 col-md-10 col-sm-12">
-                            <input class="form-control" type="text" id="phone" name="phone" />
+                            <input class="form-control" type="text" id="form_phone" name="phone" />
+                            <span class="text-danger" id="phone_error_message"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-lg-2 col-md-2 col-sm-12">
-                            <label for="email">E-Mail</label>
+                            <label for="form_email">E-Mail</label>
                         </div>
                         <div class="col-lg-10 col-md-10 col-sm-12">
-                            <input class="form-control" type="text" id="email" name="email" />
+                            <input class="form-control" type="text" id="form_email" name="email" />
+                            <span class="text-danger" id="email_error_message"></span>
                         </div>
                     </div>
                     <div class="form-group row">

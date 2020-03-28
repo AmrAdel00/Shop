@@ -15,20 +15,28 @@ class client{
         $this -> db = $con;
     }
 
-    public function create($name,$address,$phone,$email,$item_ID){
+    public function create($name,$address,$phone,$email,$item_ID,$user_ID,$dept_ID){
 
         $this -> name = filter_var($name,FILTER_SANITIZE_STRING);
-        $this -> address = $address;
+        $this -> address = filter_var($address,FILTER_SANITIZE_STRING);
         $this -> phone = filter_var($phone,FILTER_SANITIZE_NUMBER_INT);
         $this -> email = filter_var($email,FILTER_SANITIZE_EMAIL);
 
-        $stmt = $this -> db -> prepare("INSERT INTO clients(name, address, phone, email, item_ID, date) VALUES(?, ?, ?, ?, ?, now())");
+        $stmt = $this -> db -> prepare("INSERT INTO clients(name, address, phone, email, user_ID, item_ID, dept_ID, date) VALUES(?, ?, ?, ?, ?, ?, ?, now())");
         $stmt -> bindParam(1,$this -> name);
         $stmt -> bindParam(2,$this -> address);
         $stmt -> bindParam(3,$this -> phone);
         $stmt -> bindParam(4,$this -> email);
-        $stmt -> bindParam(5,$item_ID);
+        $stmt -> bindParam(5,$user_ID);
+        $stmt -> bindParam(6,$item_ID);
+        $stmt -> bindParam(7,$dept_ID);
         $stmt -> execute();
+
+        if ($stmt -> rowCount() > 0){
+            echo '<p class="container alert bg-transparent" style="border-color:#34F458;color:#34F458;">Added SuccessFully </p>';
+        } else {
+            echo '<p class="container alert bg-transparent" style="border-color:#F90A0A;color:#F90A0A;">Failed</p>';
+        }
 
     }
 

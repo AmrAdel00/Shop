@@ -30,37 +30,37 @@ class client{
         $stmt -> bindParam(5,$item_ID);
         $stmt -> execute();
 
+        if ($stmt -> rowcount() > 0){
+            echo '<p class="container alert bg-transparent" style="border-color:#34F458;color:#34F458;">Added Successfully</p>';
+        } else {
+            echo '<p class="container alert bg-transparent" style="border-color:#F90A0A;color:#F90A0A;">Failed To Add</p>';
+        }
+
     }
 
-    public function viewAll($id){
-
-        $stmt = $this -> db -> prepare("SELECT items.name AS item, department.name AS dept, clients.* FROM clients INNER JOIN department ON department.ID = clients.dept_ID  INNER JOIN items ON items.ID = clients.item_ID WHERE clients.sold = 0 AND clients.user_ID = ?  ORDER BY ID DESC ");
-        $stmt -> execute(array($id));
+    public function viewAll(){
+        $stmt = $this -> db -> prepare("SELECT * FROM clients");
+        $stmt -> execute();
         return $stmt -> fetchAll();
     }
 
-    public function view($id){
-
-        $stmt = $this -> db -> prepare("SELECT * FROM clients WHERE user_ID = ?");
-        $stmt -> execute(array($id));
-        return $stmt -> fetch();
-
-    }
+//    public function viewAll(){
+//
+//        $stmt = $this -> db -> prepare("SELECT items.name AS item, department.name AS dept, clients.* FROM clients INNER JOIN department ON department.ID = clients.dept_ID  INNER JOIN items ON items.ID = clients.item_ID  ORDER BY ID DESC ");
+//        $stmt -> execute();
+//        return $stmt -> fetchAll();
+//
+//    }
 
     public function done($id){
 
         $stmt = $this -> db -> prepare("UPDATE clients SET sold = 1 WHERE ID = ?");
         $stmt -> execute(array($id));
 
-        if ($stmt -> rowCount() > 0){
-            echo '<p class="container alert bg-transparent" style="border-color:#34F458;color:#34F458;">Updated SuccessFully </p>';
-        } else {
-            echo '<p class="container alert bg-transparent" style="border-color:#F90A0A;color:#F90A0A;">Failed</p>';
-        }
     }
 
     public function sold($id){
-        $stmt = $this -> db -> prepare("SELECT items.name AS item ,items.price AS price, department.name AS dept, clients.* FROM clients INNER JOIN department ON department.ID = clients.dept_ID  INNER JOIN items ON items.ID = clients.item_ID WHERE clients.sold = 1 AND clients.user_ID = ?");
+        $stmt = $this -> db -> prepare("SELECT * FROM clients WHERE sold = 1 AND user_ID = ?");
         $stmt -> execute(array($id));
         return $stmt -> fetchAll();
     }

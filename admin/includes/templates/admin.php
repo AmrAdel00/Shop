@@ -73,9 +73,6 @@
             <div class="row">
                 <?php
                 $users = $user -> viewAdmins();
-                if (empty($users)){
-                    echo '<p class="alert bg-light text-dark w-100">There`s No Admins To Show</p>';
-                } else {
                     foreach ($users as $u){
                         ?>
                         <div class="col-lg-3 col-md-6 col-sm-12 my-2">
@@ -108,7 +105,6 @@
                         </div>
                     </div>
                     <?php
-                }
                 ?>
             </div>
         </div>

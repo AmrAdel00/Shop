@@ -1,6 +1,6 @@
 <!--<div class="container">-->
     <div id="carouselExampleIndicators" class="carousel slide"  data-ride="carousel">
-        <div class="carousel-inner" style="height: 700px">
+        <div class="carousel-inner" >
             <?php
             $slider = new slider($con);
             $slides = $slider ->viewAll();
@@ -8,18 +8,18 @@
             foreach ($slides as $slide){
                 ?>
                 <div class="carousel-item <?php  if($active == 1){ echo 'active'; $active++; } ?>">
-                    <img class="d-block w-100" src="<?php echo $path . $slide['img']; ?>" alt="<?php echo $slide['head']; ?>">
+                    <img class="d-block w-100 slider-img" src="<?php echo $path . $slide['img']; ?>" alt="<?php echo $slide['head']; ?>" >
                 </div>
                 <?php
             }
             ?>
         </div>
 
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev" style="height: 700px">
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev" >
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next " href="#carouselExampleIndicators" role="button" data-slide="next" style="height: 700px">
+        <a class="carousel-control-next " href="#carouselExampleIndicators" role="button" data-slide="next" >
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
@@ -39,7 +39,9 @@
                         <div class="col-md-6 col-sm-12">
                             <div class="h-75">
                                 <h4>   SEE ALL SERVICES  </h4>  <hr>
-                                <a href="index.php?go=dept" class="btn rounded-0 mb-2"> All services </a>
+                                <span class="d-flex justify-content-center">
+                                    <a href="index.php?go=dept" class="btn rounded-0 mb-2"> All services </a>
+                                </span>
                             </div>
                         </div>
                         <?php
@@ -74,9 +76,7 @@
     </div>
     <div class="Projects">
         <h2>  Latest Items  </h2>
-        <p> Osama Elzero make video's for HTML, CSS, Java Script, php and Jquery ,Osama Elzero
-            make video's for HTML, CSS, Java Script, php and Jquery Osama Elzero
-            make video's for HTML </p>  <br>
+        <p> We know furniture shopping is not easy. Visit us, and let our experts give you a hand. Enjoy the ultimate shopping experience. At DE.CI Home, we strive to make things easier and better, by providing you with what suits you the most.</p>  <br>
     </div>
     <div class="portfolio">
         <div class="row">

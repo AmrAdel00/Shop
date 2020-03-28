@@ -169,7 +169,7 @@ class items{
     }
 
     public function itemInfo(){
-        $stmt = $this -> db -> prepare("SELECT user.name AS user, department.name AS dept, items.* FROM items INNER JOIN department ON department.ID = items.dept_ID INNER JOIN user ON user.ID = items.user_ID ORDER BY ID DESC ");
+        $stmt = $this -> db -> prepare("SELECT user.name AS user, department.name AS dept, items.* FROM items INNER JOIN department ON department.ID = items.dept_ID INNER JOIN user ON user.ID = items.user_ID ORDER BY ID DESC");
         $stmt -> execute();
         return $stmt -> fetchAll();
     }

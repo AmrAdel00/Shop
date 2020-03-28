@@ -147,6 +147,8 @@ class department{
         return $row;
     }
 
+
+
     public function count(){
         $stmt = $this -> db -> prepare("SELECT COUNT('name') FROM department");
         $stmt -> execute();

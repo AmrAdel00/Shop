@@ -84,9 +84,9 @@ class slider{
 
                 $this -> img = rand(0,100000) . '_' . $imgName;
 
-                $path = '../data/uploads/slider/';
+                $sliderPath = '../data/uploads/slider/';
 
-                move_uploaded_file($imgTmp , $path . $this->img);
+                move_uploaded_file($imgTmp , $sliderPath . $this->img);
 
                 $this -> head       = filter_var($head,FILTER_SANITIZE_STRING);
                 $this -> caption    = filter_var($caption,FILTER_SANITIZE_STRING);
@@ -118,6 +118,13 @@ class slider{
        $stmt = $this -> db -> prepare("DELETE FROM slider WHERE ID = ?");
        $stmt -> execute(array($id));
 
+    }
+
+    public  function check($id){
+        $stmt = $this -> db -> prepare("SELECT * FROM slider WHERE ID = ?");
+        $stmt -> execute(array($id));
+        $check = $stmt -> rowCount();
+        return $check;
     }
 
     public function viewAll(){

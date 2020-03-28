@@ -5,11 +5,15 @@ $(function() {
     $("#email_error_message").hide();
     $("#password_error_message").hide();
     $("#retype_password_error_message").hide();
+    $("#address_error_message").hide();
+    $("#phone_error_message").hide();
 
     var error_name = false;
     var error_email = false;
     var error_password = false;
     var error_retype_password = false;
+    var error_address = false;
+    var error_phone = false;
 
     $("#form_name").focusout(function(){
         check_name();
@@ -23,6 +27,29 @@ $(function() {
     $("#form_retype_password").focusout(function() {
         check_retype_password();
     });
+
+    $("#form_address").focusout(function() {
+        check_address();
+    });
+
+    $("#form_phone").focusout(function() {
+        check_phone();
+    });
+
+    function check_address() {
+        var pattern = /^[a-zA-Z]*$/;
+        var address = $("#form_address").val();
+
+        if(pattern.test(address) && address !== ''){
+            $("#address_error_message").hide();
+            $("#form_address").css("border","2px solid #34F458");
+        } else {
+            $("#address_error_message").html("Address Should contain only Characters");
+            $("#address_error_message").show();
+            $("#form_address").css("border","2px solid #F90A0A");
+            error_address = true;
+        }
+    }
 
     function check_name() {
         var pattern = /^[a-zA-Z]*$/;
@@ -50,6 +77,19 @@ $(function() {
         } else {
             $("#password_error_message").hide();
             $("#form_password").css("border","2px solid #34F458");
+        }
+    }
+
+    function check_phone() {
+        var phone = $("#form_phone").val().length;
+        if (phone < 11){
+            $("#phone_error_message").html("You Need To Add 11 Numbers");
+            $("#phone_error_message").show();
+            $("#form_phone").css("border","2px solid #F90A0A");
+            error_phone = true;
+        } else {
+            $("#phone_error_message").hide();
+            $("#form_phone").css("border","2px solid #34F458");
         }
     }
 
@@ -81,7 +121,25 @@ $(function() {
         }
     }
 
+    $('#buy_form').submit(function () {
+        error_name = false;
+        error_email = false;
+        error_address = false;
+        error_phone = false;
 
+        check_name();
+        check_email();
+        check_phone();
+        check_address();
+
+        if (error_name === false && error_email === false && error_address === false && error_phone === false){
+            return true;
+        } else {
+            alert("Please Fill the form Correctly");
+            return false;
+        }
+
+    });
 
     $("#registration_form").submit(function() {
         error_name = false;
@@ -95,12 +153,13 @@ $(function() {
         check_retype_password();
 
         if (error_name === false && error_email === false && error_password === false && error_retype_password === false) {
-            alert("Registration Successfull");
+
             return true;
         } else {
             alert("Please Fill the form Correctly");
             return false;
         }
+
 
     });
 
@@ -114,7 +173,6 @@ $(function() {
 
 
         if (error_name === false && error_email === false) {
-            alert("Registration Successfull");
             return true;
         } else {
             alert("Please Fill the form Correctly");
@@ -129,4 +187,7 @@ $(function() {
     $('.confirm').click(function () {
         return confirm('Are Sure To Delete This ?');
     });
+
+
+
 });

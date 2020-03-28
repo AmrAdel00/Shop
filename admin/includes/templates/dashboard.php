@@ -18,7 +18,7 @@
                         <div class="col-lg-6 mt-3">
                             <a href="index.php?go=items" class="text-decoration-none text-dark">
                                 <div class="bg-light p-2"><div style="font-size: 40px">Items</div>
-                                    <i class="fas fa-file-invoice-dollar fa-5x"></i> <span style="font-size: 80px"><?php echo $item ->count(); ?></span></div>
+                                    <i class="fas fa-file-invoice-dollar fa-5x"></i> <span style="font-size: 80px">&nbsp;<?php echo $item ->count(); ?></span></div>
                             </a>
                         </div>
                         <div class="col-lg-6 mt-3">
