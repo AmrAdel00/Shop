@@ -14,6 +14,8 @@
             $this -> db = $con;
         }
 
+
+
         public function create($username,$email,$password){
 
             $this -> name       = filter_var($username,FILTER_SANITIZE_STRING);
@@ -25,6 +27,12 @@
             $stmt -> bindParam(2,$this -> password);
             $stmt -> bindParam(3,$this -> email  );
             $stmt -> execute();
+
+            if ($stmt -> rowCount() > 0){
+                echo '<p class="container alert bg-transparent" style="border-color:#34F458;color:#34F458;">Added Successfully</p>';
+            } else {
+                echo '<p class="container alert bg-transparent" style="border-color:#F90A0A;color:#F90A0A;">Failed To Add</p>';
+            }
 
         }
 
@@ -55,6 +63,8 @@
 
                     $stmt = $this -> db -> prepare("UPDATE user SET name = ? , password = ?, email = ?, avater = ?  WHERE ID = ?");
                     $stmt -> execute(array($this -> name, $this -> password,$this -> email,$this -> avater,$id));
+
+
 
                 } else {
 

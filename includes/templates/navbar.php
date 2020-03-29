@@ -1,6 +1,6 @@
         <nav class="nav navbar navbar-expand-lg navbar-light bg-white">
             <div class="container">
-                <a class="navbar-brand" href="index.php?go=home"> <span> Furniture </span> </a>
+                <a class="navbar-brand" href="index.php?go=home"> <span style="font-weight: bold ;font-size: 30px ;color: brown ;font-family: 'Dancing Script', cursive;"> Furniture </span> </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav">
                     <!-- aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" -->
                     <span class="navbar-toggler-icon"></span>

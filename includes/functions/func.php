@@ -60,11 +60,11 @@
                 return 'about ' .$weeks . ' weeks ago';
             }
         } elseif ($month <= 12){
-                if ($month == 1){
-                    return 'about month ago';
-                } else{
-                    return 'about ' . $month . ' months ago';
-                }
+            if ($month == 1){
+                return 'about month ago';
+            } else{
+                return 'about ' . $month . ' months ago';
+            }
         } else {
             if ($years == 1){
                 return 'one year ago';
@@ -73,5 +73,3 @@
             }
         }
     }
-
-

@@ -8,7 +8,7 @@
         if (isset($_POST['add'])){
             $user -> create($_POST['name'],$_POST['email'],$_POST['pass']);
         } else {
-            $user -> edit($_POST['id'],$_POST['name'],$_POST['email'],$_POST['pass']);
+            $user -> edit($_POST['id'],$_POST['name'],$_POST['email'],$_POST['pass'],'','','');
         }
 
     }
@@ -164,7 +164,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <input type="submit" class="form-control"  />
+                    <input type="submit" class="form-control" name="add"  />
                 </div>
             </form>
         </div>

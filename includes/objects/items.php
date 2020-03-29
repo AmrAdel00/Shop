@@ -197,4 +197,10 @@ class items{
         $stmt -> execute();
         return $stmt -> fetchAll();
     }
+
+    public function related($id){
+        $stmt = $this -> db -> prepare("SELECT * FROM items WHERE dept_ID = ? ORDER BY ID DESC LIMIT 3 ");
+        $stmt -> execute(array($id));
+        return $stmt -> fetchAll();
+    }
 }

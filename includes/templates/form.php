@@ -20,12 +20,12 @@
 
                 $visiter = $user -> checkName($_POST['name']);
 
-                $_SESSION['username'] = $_POST['name'];
-                $_SESSION['id'] =   $visiter['ID'];
-
-
-                header('location: index.php');
-                exit();
+//                $_SESSION['username'] = $_POST['name'];
+//                $_SESSION['id'] =   $visiter['ID'];
+//
+//
+//                header('location: index.php');
+//                exit();
             }
 
         } else {
@@ -76,7 +76,7 @@
                         <label for="form_email"> Email  </label>
                     </div>
                     <div class="col-md-10 col-sm-12">
-                        <input type="email" class="form-control" id="form_email" />
+                        <input type="email" class="form-control" id="form_email" name="email" />
                         <span class="text-danger" id="email_error_message"></span>
                     </div>
                 </div>
@@ -108,45 +108,6 @@
                 <a href="index.php?go=join&login" >Do You Already Have Account ? </a>
             </form>
         </div>
-<!--        <div class="container">-->
-<!--            <h1 class="text-center text-capitalize">join us</h1>-->
-<!--            <form class="w-100 my-5" id="registration_form" method="POST"  action="--><?php //echo $_SERVER['PHP_SELF']; ?><!--?go=join&sign">-->
-<!--                <div class="form-group row">-->
-<!--                    <label for="name" class="col-sm-2 col-form-label">UserName</label>-->
-<!--                    <div class="col-sm-10">-->
-<!--                        <input type="text" class="form-control" id="form_name" name="name"/>-->
-<!--                        <span class="text-danger" id="name_error_message"></span>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="form-group row">-->
-<!--                    <label for="email" class="col-sm-2 col-form-label">Email</label>-->
-<!--                    <div class="col-sm-10">-->
-<!--                        <input type="email" class="form-control" id="form_email" name="email"/>-->
-<!--                        <span class="text-danger" id="email_error_message"></span>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="form-group row">-->
-<!--                    <label for="pass" class="col-sm-2 col-form-label">PassWord</label>-->
-<!--                    <div class="col-sm-10">-->
-<!--                        <input type="password" class="form-control" id="form_password" name="pass"/>-->
-<!--                        <span class="text-danger" id="password_error_message"></span>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="form-group row">-->
-<!--                    <label for="pass" class="col-sm-2 col-form-label">Re-Type PassWord</label>-->
-<!--                    <div class="col-sm-10">-->
-<!--                        <input type="password" class="form-control" id="form_retype_password"/>-->
-<!--                        <span class="text-danger" id="retype_password_error_message"></span>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="form-group row">-->
-<!--                    <div class="col-sm-12">-->
-<!--                        <input type="submit" class="form-control"  name="sign"/>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </form>-->
-<!--            <a href="index.php?go=join&login" >Do You Already Have Account ? </a>-->
-<!--        </div>-->
         <?php
     } elseif (isset($_GET['login'])){
         ?>
@@ -181,29 +142,6 @@
                 <a href="index.php?go=join&sign" >Do You Want To Create Account ?  </a>
             </form>
         </div>
-<!--        <div class="container">-->
-<!--            <h1 class="text-center text-capitalize">login in</h1>-->
-<!--            <form class="w-100 my-5"  method="POST" action="--><?php //echo $_SERVER['PHP_SELF'];?><!--?go=join&login">-->
-<!--                <div class="form-group row">-->
-<!--                    <label for="name" class="col-sm-2 col-form-label">UserName</label>-->
-<!--                    <div class="col-sm-10">-->
-<!--                        <input type="text" class="form-control" id="name" name="name"/>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="form-group row">-->
-<!--                    <label for="pass" class="col-sm-2 col-form-label">PassWord</label>-->
-<!--                    <div class="col-sm-10">-->
-<!--                        <input type="password" class="form-control" id="pass" name="pass"/>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="form-group row">-->
-<!--                    <div class="col-sm-12">-->
-<!--                        <input type="submit" class="form-control" />-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </form>-->
-<!--            <a href="index.php?go=join&sign" >Do You Want To Create Account ? </a>-->
-<!--        </div>-->
         <?php
     } else {
         header('location: index.php?go=join&sign');

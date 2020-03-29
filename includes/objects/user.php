@@ -14,17 +14,29 @@
             $this -> db = $con;
         }
 
+
         public function create($username,$email,$password){
 
             $this -> name       = filter_var($username,FILTER_SANITIZE_STRING);
             $this -> password   = password_hash($password,PASSWORD_DEFAULT);
             $this -> email      = filter_var($email,FILTER_SANITIZE_EMAIL);
 
-            $stmt = $this -> db -> prepare("INSERT INTO user(name, password, email, Date) VALUES(?,?,?,now())");
-            $stmt -> bindParam(1,$this -> name);
-            $stmt -> bindParam(2,$this -> password);
-            $stmt -> bindParam(3,$this -> email  );
-            $stmt -> execute();
+            try {
+                $stmt = $this -> db -> prepare("INSERT INTO user(name, password, email, Date,avater) VALUES(?,?,?, now(),'')");
+                $stmt -> bindParam(1,$this -> name);
+                $stmt -> bindParam(2,$this -> password);
+                $stmt -> bindParam(3,$this -> email  );
+                $stmt -> execute();
+            } catch (PDOException $e){
+                echo 'Failed ' . $e -> getMessage();
+            }
+
+
+//            if ($stmt -> rowCount() > 0){
+//                echo '<p class="container alert bg-white mt-2" style="border-color:#34F458;color:#34F458;">Added Successfully</p>';
+//            } else {
+//                echo '<p class="container alert bg-white mt-2" style="border-color:#F90A0A;color:#F90A0A;">Failed To Add</p>';
+//            }
 
         }
 

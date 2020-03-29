@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="<?php echo $css; ?>bootstrap.min.css">
         <link rel="stylesheet" href="<?php echo $css; ?>all.min.css">
         <link rel="stylesheet" href="<?php echo $css; ?>style.css">
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
         <title><?php title(); ?></title>
     </head>
     <body style="<?php if(isset($_GET['go']) && $_GET['go'] === 'join'){echo 'background-color: rgb(165, 92, 92);';} ?>" >

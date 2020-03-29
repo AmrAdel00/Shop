@@ -11,44 +11,49 @@
 <?php
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
 //            echo $_POST['search'];
-            $item = new items($con);
-            $items = $item->search($_POST['search']);
-            if (empty($items)) {
+            if (empty($_POST['search'])){
                 echo '<p class="container alert alert-light my-3">Not Found</p>';
             } else {
-                ?>
-                <div class="container">
-                    <div class="row">
-                        <?php
-                        foreach ($items as $item) {
-                            ?>
-                            <div class="col-lg-4 col-md-6 col-sm-12">
-                                <div class="card   card-edit mt-2" style="width: 18rem;">
-                                    <img src="<?php echo $itemPath . $item['img']; ?>" class="card-img-top img-card">
-                                    <div class="card-body">
-                                        <h2 class="card-title head">
-                                            <div class="row">
-                                                <div class="col-9">
-                                                    <span class="fa-pull-left"> <?php echo $item['name']; ?></span>
+                $item = new items($con);
+                $items = $item->search($_POST['search']);
+                if (empty($items)) {
+                    echo '<p class="container alert alert-light my-3">Not Found</p>';
+                } else {
+                    ?>
+                    <div class="container">
+                        <div class="row">
+                            <?php
+                            foreach ($items as $item) {
+                                ?>
+                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <div class="card   card-edit mt-2" style="width: 18rem;">
+                                        <img src="<?php echo $itemPath . $item['img']; ?>" class="card-img-top img-card">
+                                        <div class="card-body">
+                                            <h2 class="card-title head">
+                                                <div class="row">
+                                                    <div class="col-9">
+                                                        <span class="fa-pull-left"> <?php echo $item['name']; ?></span>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <span class="fa-pull-right">$<?php echo $item['price']; ?></span>
+                                                    </div>
                                                 </div>
-                                                <div class="col-3">
-                                                    <span class="fa-pull-right">$<?php echo $item['price']; ?></span>
-                                                </div>
-                                            </div>
-                                        </h2>
-                                        <p class="card-text text"><?php echo $item['description']; ?></p>
-                                        <a href="index.php?go=item&id=<?php echo $item['ID']; ?>" class="btn show-more">
-                                            Show More....</a>
+                                            </h2>
+                                            <p class="card-text text"><?php echo $item['description']; ?></p>
+                                            <a href="index.php?go=item&id=<?php echo $item['ID']; ?>" class="btn show-more">
+                                                Show More....</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <?php
-                        }
-                        ?>
+                                <?php
+                            }
+                            ?>
+                        </div>
                     </div>
-                </div>
-                <?php
+                    <?php
+                }
             }
+
         }
 
 ?>
